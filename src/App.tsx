@@ -1,9 +1,12 @@
+import MantineButton from "./components/MantineButton"
 
 function App() {
 
   return (
     <>
-    <div>halo</div>
+    <div>haloooo this is button</div>
+    <MantineButton />
+    <div>halo this will be drag and drop component</div>
     </>
   )
 }
