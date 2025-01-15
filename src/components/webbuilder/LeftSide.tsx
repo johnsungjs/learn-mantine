@@ -42,19 +42,30 @@ export default function LeftSide() {
     <div className="font-bold text-4xl border border-red-500 h-full w-80">
       <div>Draggable!</div>
       <DragDropContext
-      onDragEnd={({ destination, source }) =>
-        handlers.reorder({ from: source.index, to: destination?.index || source.index })
-      }
-    >
-      <Droppable droppableId="dnd-list" direction="vertical">
-        {(provided) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
-            {items}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+        onDragEnd={(props) => {
+          //TODO: PAKAI STATE + PROPS.SOURCE.INDEX!
+          // console.log("state", state);
+          // console.log("source: ", props.source);
+
+          // console.log("props", props);
+          // console.log("handlers", handlers)
+          // console.log("destination: ", destination);
+          // handlers.reorder({
+          //   from: props.source.index,
+          //   // to: props.destination?.index || props.source.index,
+          //   to: props.source.index,
+          // });
+        }}
+      >
+        <Droppable droppableId="dnd-list" direction="vertical">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {items}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
   );
 }
